@@ -31,7 +31,7 @@ fn main() -> std::io::Result<()> {
         stream.read_to_string(&mut response)?;
         
         let parsed = json::parse(&response)
-        .expect("Error: parsing json");
+            .expect("Error: parsing json");
 
         let workspace_id: i32 = parsed["id"].as_i32()
             .expect("Error: parsing json to i32");
