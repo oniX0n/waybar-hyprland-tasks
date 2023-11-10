@@ -19,3 +19,5 @@ Both binaries need to be in your path.
   "signal": 8
 },
 ```
+
+This is bare minimum right now, it only displays the name of the application, no icon. Also the tasks are not ordered yet.
