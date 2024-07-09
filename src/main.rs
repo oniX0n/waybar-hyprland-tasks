@@ -2,6 +2,7 @@ use std::os::unix::net::UnixStream;
 use std::io::prelude::*;
 use std::env;
 
+
 fn main() -> std::io::Result<()> {
 
     //arg handling
@@ -16,10 +17,14 @@ fn main() -> std::io::Result<()> {
     }
 
 
+
+
     let hyprland_sig = env::var("HYPRLAND_INSTANCE_SIGNATURE")
         .expect("Error: retrieving env var");
+    let xdg_runtime_dir = env::var("XDG_RUNTIME_DIR")
+        .expect("Error: retrieving env var");
 
-    let path = format!("/tmp/hypr/{hyprland_sig}/.socket.sock");
+    let path = format!("{xdg_runtime_dir}/hypr/{hyprland_sig}/.socket.sock");
     
 
     //workspace -w

@@ -25,7 +25,9 @@ fn main() -> std::io::Result<()>  {
     //get hyprland sig
     let hyprland_sig = env::var("HYPRLAND_INSTANCE_SIGNATURE")
         .expect("Error: retrieving env var");
-    let path = format!("/tmp/hypr/{hyprland_sig}/.socket2.sock");
+    let xdg_runtime_dir = env::var("XDG_RUNTIME_DIR")
+        .expect("Error: retrieving env var");
+    let path = format!("{xdg_runtime_dir}/hypr/{hyprland_sig}/.socket2.sock");
 
 
     //open socket
